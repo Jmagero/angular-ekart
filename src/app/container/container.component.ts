@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Product } from './Model/product';
+import { ProductListComponent } from './product-list/product-list.component';
 
 @Component({
   selector: 'app-container',
@@ -20,9 +21,6 @@ export class ContainerComponent {
     return (this.product.price - (this.product.price * this.product.discountedPrice /100)).toFixed(2);
   }
 
-  onNameChange(event : any){
-    //  this.name = event.target.value;
-  }
   onClickDecremet (){
      this.addToCart--;
   }
@@ -38,4 +36,7 @@ export class ContainerComponent {
   }
 
   selectedProduct:Product;
+
+  @ViewChild(ProductListComponent)
+  productListComp: ProductListComponent;
 }

@@ -8,6 +8,12 @@ import { ProductListComponent } from '../product-list/product-list.component';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent {
-  @Input()
   product: Product;
+
+  @Input()
+  productListComp: ProductListComponent;
+
+  ngOnInit(){
+     this.product = this.productListComp.selectedProduct;
+  }
 }
